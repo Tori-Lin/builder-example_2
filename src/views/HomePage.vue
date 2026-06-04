@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import HeroSection from '@/components/HeroSection.vue'
 import CharacterCarousel from '@/components/CharacterCarousel.vue'
 import CharacterDetail from '@/components/CharacterDetail.vue'
-import BuilderBlock from '@/components/BuilderBlock.vue';
+// import BuilderBlock from '@/components/BuilderBlock.vue';
 
 // Sample character data
 const characters = [
@@ -106,7 +106,7 @@ const handleCharacterSelect = (id: number) => {
 
     <!-- Section 3: Character Detail -->
     <CharacterDetail :character="selectedCharacter" />
-    <BuilderBlock />
+    <!-- <BuilderBlock /> -->
   </div>
 </template>
 

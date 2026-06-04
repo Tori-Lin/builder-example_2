@@ -34,7 +34,7 @@
         class="text-6xl md:text-8xl font-black text-white mb-4 leading-tight tracking-tighter"
         style="text-shadow: 0 0 30px rgba(139, 92, 246, 0.6)"
       >
-        hhhhhhNEXUS AWAKENS
+        測試修改Title
       </h1>
       <h2 class="text-xl md:text-3xl text-gaming-cyan font-light tracking-widest">
         dcxcxvcxvvcxcvcxvxvc

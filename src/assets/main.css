@@ -1,0 +1,5 @@
+@import './base.css'; /* 放在最頂端 */
+import '@builder.io/sdk-vue/css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

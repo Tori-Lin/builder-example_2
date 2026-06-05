@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CharacterCard from '@/components/CharacterCard.vue'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 interface Character {
   id: number
   name: string
@@ -273,7 +273,6 @@ const rightCharacters = [
       </div>
     </div>
 
-123123
     <!-- Bottom section (updated background color and dynamic selection) -->
     <div class="bg-[#F1F1F1] px-4 py-10 sm:px-8 lg:px-16">
       <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6">
@@ -366,8 +365,10 @@ const rightCharacters = [
                 />
                 <!-- Close Button -->
                 <button
-                  @click="showLightbox = false"
-                  class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full text-white transition-all duration-200 z-10"
+                  @click="() => {
+                    showLightbox = false"
+                    class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full text-white transition-all duration-200 z-10
+                  }"
                 >
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>

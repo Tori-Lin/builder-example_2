@@ -314,10 +314,11 @@ const rightCharacters = [
             <div
               v-for="(item, index) in rightCharacters"
               :key="'right-' + index"
-              @click="
+              @click="()=> {
                 rightSelectedIndex = index
                 selectedCharacter = item
                 showLightbox = true
+              }
               "
               class="w-10 h-10 rounded-md border cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden"
               :class="[

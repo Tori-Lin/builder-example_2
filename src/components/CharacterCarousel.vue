@@ -135,7 +135,6 @@ const getDotTransformStyle = (dotIndex: number) => {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
           </svg>
         </button>
-12313123
         <div class="relative w-full h-full flex items-center justify-center" style="transform-style: preserve-3d">
           <div
             v-for="(character, idx) in displayCharacters"

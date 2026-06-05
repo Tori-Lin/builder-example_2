@@ -273,7 +273,6 @@ const rightCharacters = [
       </div>
     </div>
 
-123123
     <!-- Bottom section (updated background color and dynamic selection) -->
     <div class="bg-[#F1F1F1] px-4 py-10 sm:px-8 lg:px-16">
       <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6">

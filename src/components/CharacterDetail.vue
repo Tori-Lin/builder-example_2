@@ -273,6 +273,7 @@ const rightCharacters = [
       </div>
     </div>
 
+123123
     <!-- Bottom section (updated background color and dynamic selection) -->
     <div class="bg-[#F1F1F1] px-4 py-10 sm:px-8 lg:px-16">
       <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6">
@@ -282,14 +283,14 @@ const rightCharacters = [
             <div
               v-for="(item, index) in leftCharacters"
               :key="'left-' + index"
-              @click="() => {
-                eftSelectedIndex = index
+              @click="
+                leftSelectedIndex = index
                 selectedCharacter = item
                 showLightbox = true
-              }"
+              "
               class="w-10 h-10 rounded-md border cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden"
               :class="[
-                leftSelectedIndex === index
+                showLightbox && selectedCharacter?.id === item.id
                   ? 'bg-[#005287] border-[#005287] scale-105 shadow-md'
                   : 'bg-[#B7B7B7] border-[#DEDEDE] hover:bg-[#959595]'
               ]"
@@ -313,15 +314,14 @@ const rightCharacters = [
             <div
               v-for="(item, index) in rightCharacters"
               :key="'right-' + index"
-              @click="()=> {
+              @click="
                 rightSelectedIndex = index
                 selectedCharacter = item
                 showLightbox = true
-              }
               "
               class="w-10 h-10 rounded-md border cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden"
               :class="[
-                rightSelectedIndex === index
+                showLightbox && selectedCharacter?.id === item.id
                   ? 'bg-[#005287] border-[#005287] scale-105 shadow-md'
                   : 'bg-[#B7B7B7] border-[#DEDEDE] hover:bg-[#959595]'
               ]"

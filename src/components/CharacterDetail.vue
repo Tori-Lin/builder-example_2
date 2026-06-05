@@ -365,7 +365,7 @@ const rightCharacters = [
                 />
                 <!-- Close Button -->
                 <button
-                  @click="() => {showLightbox = false"}
+                  @click="() => {showLightbox = false}"
                     class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full text-white transition-all duration-200 z-10
                   "
                 >

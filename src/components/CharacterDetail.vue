@@ -10,14 +10,22 @@ interface Character {
   image: string
 }
 
+interface CharacterItem {
+  name: string
+  subtitle: string
+  id: string
+  abilities: string
+  image: string
+}
+
 defineProps<{
   character: Character
 }>()
 
-
-
 const leftSelectedIndex = ref(0)
 const rightSelectedIndex = ref(0)
+const showLightbox = ref(false)
+const selectedCharacter = ref<CharacterItem | null>(null)
 
 const imgA = 'https://cdn.builder.io/api/v1/image/assets%2F8c2d6fe08afb428d81bfb737147473a1%2Fceab6d88b7d047a7b9c4234655afe417'
 const imgB = 'https://cdn.builder.io/api/v1/image/assets%2F8c2d6fe08afb428d81bfb737147473a1%2Fb15c93f6be86454aa4e7eccaca033d3b'
@@ -275,7 +283,11 @@ const rightCharacters = [
             <div
               v-for="(item, index) in leftCharacters"
               :key="'left-' + index"
-              @click="leftSelectedIndex = index"
+              @click="
+                leftSelectedIndex = index
+                selectedCharacter = item
+                showLightbox = true
+              "
               class="w-10 h-10 rounded-md border cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden"
               :class="[
                 leftSelectedIndex === index
@@ -302,7 +314,11 @@ const rightCharacters = [
             <div
               v-for="(item, index) in rightCharacters"
               :key="'right-' + index"
-              @click="rightSelectedIndex = index"
+              @click="
+                rightSelectedIndex = index
+                selectedCharacter = item
+                showLightbox = true
+              "
               class="w-10 h-10 rounded-md border cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden"
               :class="[
                 rightSelectedIndex === index
@@ -325,5 +341,61 @@ const rightCharacters = [
         </div>
       </div>
     </div>
+
+    <!-- Lightbox Modal -->
+    <Teleport to="body">
+      <Transition name="fade">
+        <div
+          v-if="showLightbox"
+          class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+          @click="showLightbox = false"
+        >
+          <!-- Modal Card -->
+          <Transition name="zoom">
+            <div
+              v-if="showLightbox && selectedCharacter"
+              class="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden"
+              @click.stop
+            >
+              <!-- Image Section -->
+              <div class="relative w-full h-64 overflow-hidden bg-gray-900">
+                <img
+                  :src="selectedCharacter.image"
+                  :alt="selectedCharacter.name"
+                  class="w-full h-full object-cover"
+                />
+                <!-- Close Button -->
+                <button
+                  @click="showLightbox = false"
+                  class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full text-white transition-all duration-200 z-10"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Content Area -->
+              <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-1">
+                  {{ selectedCharacter.name }}
+                </h2>
+                <p class="text-sm text-gray-500 mb-4">
+                  {{ selectedCharacter.subtitle }}
+                </p>
+
+                <!-- Divider -->
+                <div class="w-full h-px bg-gray-200 mb-4"></div>
+
+                <!-- Abilities -->
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  {{ selectedCharacter.abilities }}
+                </p>
+              </div>
+            </div>
+          </Transition>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>

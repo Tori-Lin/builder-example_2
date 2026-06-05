@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+</script>
 
 <template>
   <section
@@ -17,14 +19,14 @@
 
     <!-- Navigation Bar -->
     <nav class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-8 py-6">
-      <div class="text-2xl font-bold bg-gradient-gaming-accent bg-clip-text text-transparent">
+      <RouterLink to="/" class="text-2xl font-bold bg-gradient-gaming-accent bg-clip-text text-transparent">
         NEXUS
-      </div>
+      </RouterLink>
       <div class="hidden md:flex gap-8 text-white/80">
-        <a href="#" class="hover:text-gaming-cyan transition">Characters</a>
-        <a href="#" class="hover:text-gaming-cyan transition">Story</a>
-        <a href="#" class="hover:text-gaming-cyan transition">Gallery</a>
-        <a href="#" class="hover:text-gaming-cyan transition">Contact</a>
+        <RouterLink to="/item-1" class="hover:text-gaming-cyan transition">Characters</RouterLink>
+        <RouterLink to="/item-2" class="hover:text-gaming-cyan transition">Story</RouterLink>
+        <RouterLink to="/item-3" class="hover:text-gaming-cyan transition">Gallery</RouterLink>
+        <RouterLink to="/item-4" class="hover:text-gaming-cyan transition">Contact</RouterLink>
       </div>
     </nav>
 
@@ -34,10 +36,10 @@
         class="text-6xl md:text-8xl font-black text-white mb-4 leading-tight tracking-tighter"
         style="text-shadow: 0 0 30px rgba(139, 92, 246, 0.6)"
       >
-        測試修改Title
+        Builder Project
       </h1>
       <h2 class="text-xl md:text-3xl text-gaming-cyan font-light tracking-widest">
-        dcxcxvcxvvcxcvcxvxvc
+        Example
       </h2>
     </div>
 

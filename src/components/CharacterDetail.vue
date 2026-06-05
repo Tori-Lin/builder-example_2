@@ -283,11 +283,11 @@ const rightCharacters = [
             <div
               v-for="(item, index) in leftCharacters"
               :key="'left-' + index"
-              @click="
+              @click="() => {
                 leftSelectedIndex = index
                 selectedCharacter = item
                 showLightbox = true
-              "
+              }"
               class="w-10 h-10 rounded-md border cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden"
               :class="[
                 showLightbox && selectedCharacter?.id === item.id
@@ -314,11 +314,11 @@ const rightCharacters = [
             <div
               v-for="(item, index) in rightCharacters"
               :key="'right-' + index"
-              @click="
+              @click="() => {
                 rightSelectedIndex = index
                 selectedCharacter = item
                 showLightbox = true
-              "
+              }"
               class="w-10 h-10 rounded-md border cursor-pointer transition-all duration-300 flex items-center justify-center overflow-hidden"
               :class="[
                 showLightbox && selectedCharacter?.id === item.id
@@ -348,7 +348,7 @@ const rightCharacters = [
         <div
           v-if="showLightbox"
           class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50"
-          @click="showLightbox = false"
+          @click="() => {showLightbox = false}"
         >
           <!-- Modal Card -->
           <Transition name="zoom">
@@ -366,8 +366,10 @@ const rightCharacters = [
                 />
                 <!-- Close Button -->
                 <button
-                  @click="showLightbox = false"
-                  class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full text-white transition-all duration-200 z-10"
+                  @click="() => {
+                    showLightbox = false"
+                    class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full text-white transition-all duration-200 z-10
+                  }"
                 >
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
